@@ -14,7 +14,7 @@ class QuestionIdentifier extends StatelessWidget {
   Widget build(BuildContext context) {
     final questionNumber = questionIndex + 1;
     final identifierColor = isCorrect
-        ? const Color.fromARGB(255, 153, 209, 255)
+        ? const Color.fromARGB(255, 236, 197, 22)
         : const Color.fromARGB(255, 251, 171, 165);
 
     return Container(
