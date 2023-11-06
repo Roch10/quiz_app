@@ -25,14 +25,14 @@ class _QuizState extends State<Quiz> {
   //   super.initState();
   // }
 
-  void switchScreen() {
+  void _switchScreen() {
     setState(() {
       // activeScreen = const QuestionScreen();
       activeScreen = 'questions-screen';
     });
   }
 
-  void chooseAnswer(String answer) {
+  void _chooseAnswer(String answer) {
     selectedAnswers.add(answer);
 
     if (selectedAnswers.length == questions.length) {
@@ -43,7 +43,7 @@ class _QuizState extends State<Quiz> {
     }
   }
 
-  void restartQuiz() {
+  void _restartQuiz() {
     setState(() {
       selectedAnswers.clear();
       activeScreen = 'start-screen';
@@ -52,18 +52,18 @@ class _QuizState extends State<Quiz> {
 
   @override
   Widget build(context) {
-    Widget screenWidget = StartScreen(switchScreen);
+    Widget screenWidget = StartScreen(_switchScreen);
 
     if (activeScreen == 'questions-screen') {
       screenWidget = QuestionScreen(
-        onSelectAnswer: chooseAnswer,
+        onSelectAnswer: _chooseAnswer,
       );
     }
 
     if (activeScreen == 'result-screen') {
       screenWidget = ResultScreen(
         chosenAnswers: selectedAnswers,
-        onRestartQuiz: restartQuiz,
+        onRestartQuiz: _restartQuiz,
       );
     }
 
